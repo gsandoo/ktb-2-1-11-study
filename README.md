@@ -83,7 +83,7 @@ Part      : 배열(Array)
 # **[ :octocat: 커밋 ]**
 
 ```
-Feat: 1주차_sando
+ 1주차 sando 질문 정리
 ```
 
 # **[ ⛬ 히스토리 ]**
