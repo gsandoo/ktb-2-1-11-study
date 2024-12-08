@@ -53,6 +53,76 @@
 
 <br/><br/>
 
+#### 브라우저에 www.naver.com을 치면 일어나는 일
+> 1. 사용자가 'www.naver.com'을 요청하면, 브라우저와 운영 체제의 로컬 캐시를 먼저 확인한다.
+
+> 2. 캐시에 도메인에 해당하는 정보가 없을 경우, Recursive DNS Server에 DNS Query를 보낸다.
+
+> 3. Recursive DNS Server의 로컬 캐시에서 도메인 네임이 발견되면 매핑된 IP 주소를 반환한다. 그렇지 않은 경우 Root Name Server에 DNS Query를 요청한다.
+
+> 4. Root Name Server는 DNS Query에 따라 올바른 TLD Name Server로 안내한다. 즉, 요청이 www.naver.com 이므로 .com 최상위 도메인을 처리하는 TLD Name Server로 안내한다.
+
+> 5. TLD Name Server는 DNS Query에 따라 올바른 Authoritative Name Server로 안내한다. 즉, 요청이 www.naver.com 이므로 naver.com 2단계 도메인을 처리하는 Authoritative Name Server로 안내한다.
+
+> 6. Authoritative Name Server는 DNS Query에 따라 최종 IP 주소를 반환한다.
+
+> 7. Recursive DNS Server는 전달받은 IP 주소를 클라이언트에 전달하고 로컬 캐시에 저장한다.
+
+> 8. 클라이언트는 전달받은 IP 주소로 'www.naver.com'에 접속한다.
+
+<br/><br/>
+
+#### OSI 7 계층에 대해서 설명해주세요
+
+> 물리 계층 (Physical Layer)은 데이터를 **전기 신호, 광 신호, 전파로 변환**하여 **물리적 매체를 통해 전송**하는 역할을 수행한다.
+> - 데이터 전송 단위 : Bit
+> - 장비 : 허브, 리피터
+
+> 데이터 링크 계층 (Data Link Layer)은 **MAC 주소를 기반**으로 **같은 LAN에 속한 호스트 간에 데이터를 전송**하는 역할을 수행한다. 
+> 이때 프레임(Frame) 단위로 데이터를 처리하고 **오류 검출(CRC)** 과 **기본적인 흐름 제어를 수행**한다.
+> - 데이터 전송 단위 : Frame
+> - 프로토콜 : Ethernet
+> - 장비 : 브릿지, 스위치
+
+> 네트워크 계층 (Network Layer)은 **IP 주소를 기반**으로 데이터를 **다른 네트워크에 속한 호스트에 전달**하는 역할을 수행한다.
+> 이때 패킷(Packet) 단위로 데이터를 처리하고 **라우팅 프로토콜**을 통해 목적지까지의 최적 경로를 결정한다.
+> - 데이터 전송 단위 : Packet
+> - 프로토콜 : IP, ICMP, ARP, OSPF
+> - 장치 : 라우터
+
+> 전송 계층 (Transport Layer)은 **포트를 기반**으로 데이터를 **호스트 내의 응용프로그램에 전달**하는 역할을 수행한다.
+> 이때 TCP의 경우 세그먼트(Segment) 단위로 데이터를 처리하고 신뢰성있는 통신을 위해 연결 수립, 오류 제어, 흐름 제어, 혼잡 제어를 수행한다.
+> UDP의 경우 데이터그램(Datagram) 단위로 데이터를 처리하고 연결 설정 없이 빠르게 통신을 수행한다.
+> - 데이터 전송 단위 : Segment(TCP), Datagram(UDP)
+> - 프로토콜 : TCP, UDP
+
+> 세션 계층 (Session Layer)은 응용 프로그램 간의 연결 상태를 의미하는 **세션을 설정, 유지, 종료**하는 역할을 수행한다. 이때 데이터 전송 중 **동기화**와 복구를 위한 **체크 포인트**를 설정한다.
+> - 프로토콜 : NetBIOS, RPC
+
+> 표현 계층 (Presentation Layer)은 데이터 변환, 압축, 암호화와 같이 **서로 다른 시스템 간 데이터 표현 방식을 표준화**하는 작업을 하는 역할을 수행한다.
+> 프로토콜 : SSL/TLS, JPEG
+
+> 응용 계층 (Application Layer)은 사용자와 네트워크 간의 상호작용을 담당하고 **응용 프로그램에게 네트워크 서비스를 제공**하는 역할을 수행한다. 이때 사용자 요청을 적절한 프로토콜로 변환해 하위 계층에 전달한다.
+> 프로토콜 : HTTP, FTP, SMTP, DNS, POP3/IMAP
+
+<br/><br/>
+
+#### ARP와 RARP의 차이점을 설명해주세요 
+
+> ARP(Address Resolution Protocol)는 IP 주소를 기반으로 MAC 주소를 알아내기 위한 프로토콜이다. 주로, LAN 내에서 데이터를 주고 받기 위해서 사용한다. 브로드캐스트 요청을 통해 MAC 주소를 확인하며, ARP 테이블에 캐시로 저장한다.
+
+> RARP(Reverse Address Resolution Protocol)는 MAC 주소를 기반으로 IP 주소를 알아내기 위한 프로토콜이다. 주로, IP 주소를 할당 받기 위해서 사용한다.
+
+<br/><br/>
+
+#### L2 스위치와 L3 스위치의 차이점을 설명해주세요
+
+> L2 스위치와 L3 스위치는 네트워크 트래픽을 최적화하기 위해 스위칭 기능을 수행한다.
+
+> L2 스위치는 데이터 링크 계층에서 동작하며, MAC 주소를 기반으로 프레임을 전달한다. LAN 내의 통신에서 주로 사용된다.
+
+> L3 스위치는 네트워크 계층에서 동작하며, IP 주소를 기반으로 패킷을 전달한다. 네트워크 간 통신에서 주로 사용된다.
+
 #### AWS의 서비스를 이용해서 HTTPs를 적용해본 경험이 있나요?
 > 네 ACM을 이용해 SSL/TLS 인증서를 생성하여 적용해본 경험이 있습니다. HTTPs를 적용하기 위해서는 ALB(Application Load Balencer) 또는 CloudFront와 같은 AWS 서비스를 사용할 수 있습니다.
 
