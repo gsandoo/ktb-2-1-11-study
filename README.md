@@ -6,10 +6,10 @@
 # **[ 👨‍👨‍👧‍👦 ‍멤버 ]**
 | 이름   |                                                     Github                                                      | POSITION |
 |------|:------------------------------------------------------------------------------------------------------------------------------------:|:--------:|
-| 강산아 |      [<img src="https://avatars.githubusercontent.com/gsandoo" width="50px;">](https://github.com/gsandoo)      | Backend  |
-| 권지현 |       [<img src="https://avatars.githubusercontent.com/kwontory" width="50px;">](https://github.com/kwontory)       | Backend  |
-| 박민수 |      [<img src="https://avatars.githubusercontent.com/pmsu2007" width="50px;">](https://github.com/pmsu2007)      | Backend  |
-| 황승수 | [<img src="https://avatars.githubusercontent.com/rivercity310" width="50px;">](https://github.com/rivercity310) | Backend  |
+| sando |      [<img src="https://avatars.githubusercontent.com/gsandoo" width="50px;">](https://github.com/gsandoo)      | Backend  |
+| victoria |       [<img src="https://avatars.githubusercontent.com/kwontory" width="50px;">](https://github.com/kwontory)       | Backend  |
+| mason |      [<img src="https://avatars.githubusercontent.com/pmsu2007" width="50px;">](https://github.com/pmsu2007)      | Backend  |
+| luis | [<img src="https://avatars.githubusercontent.com/rivercity310" width="50px;">](https://github.com/rivercity310) | Backend  |
 
 </br>
 
@@ -83,11 +83,11 @@ Part      : 배열(Array)
 # **[ :octocat: 커밋 ]**
 
 ```
-Feat: 1주차_sando
+ 1주차 sando 질문 정리
 ```
 
 # **[ ⛬ 히스토리 ]**
 
 | 날짜            |문제|
 |---------------|:---:|
-| 2024.11.20    |[Week01](https://github.com/KTB-Study/ktb-2-11-study/)|
+| 2024.11.20    |sando: Spring / victoria: OS / mason: DB / luis: Network|
