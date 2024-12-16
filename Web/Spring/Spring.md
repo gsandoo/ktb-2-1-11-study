@@ -159,3 +159,65 @@
 > > 기존 엔티티라면 `EntityManager.merge()` 호출. <BR/>
 
 <br/><br/>
+
+#### Spring Bean과 등록 방법에 대해서 설명해주세요
+> 1. XML 파일을 사용한 Bean 등록 <br/>
+
+> >  초기 스프링 프레임워크에서 사용되던 방식
+```xml
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="myBean" class="com.example.MyBean" />
+</beans>
+```
+
+> 2.  Java Config(@Configuration) 방식
+
+>> Java 기반의 설정 클래스를 사용하여 Bean을 등록하는 방식.
+
+```java
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public MyBean myBean() {
+        return new MyBean();
+    }
+}
+```
+
+> 3. Annotation 기반 방식
+
+>> 클래스에 직접 어노테이션을 추가하여 Bean을 등록
+
+> `@Component`: 일반적인 Spring Bean 등록. <br/>
+> `@Service`: 서비스 레이어에서 사용되는 Bean에 주로 사용.<br/>
+> `@Repository`: DAO(Data Access Object) 레이어에서 사용.<br/>
+> `@Controller`: Spring MVC에서 컨트롤러로 사용.
+> 
+```java
+@Component
+public class MyBean {
+    // Bean 클래스 정의
+}
+
+```
+<br/><br/>
+
+#### Spring Bean의 Scope 개념에 대해 설명해주세요.
+> Spring Bean의 Scope는 Spring IoC 컨테이너가 Bean의 생성 방식과 생명주기를 관리하는 방식을 정의합니다<br/>
+> Scope는 Bean의 인스턴스가 생성되고 사용되는 범위를 결정하는 설정
+
+> Spring의 주요 Bean scope
+
+> 1. Singleton (기본 스코프)
+>> Spring 컨테이너당 하나의 Bean 인스턴스를 생성하고 관리<br/>
+>> 모든 요청이 동일한 인스턴스를 공유.
+> 2. Prototype
+>> Bean 요청 시마다 새로운 인스턴스를 생성
+> 3. Request (웹 애플리케이션 전용)
+>> HTTP 요청당 하나의 Bean 인스턴스를 생성
+
